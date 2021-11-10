@@ -1,0 +1,102 @@
+.owl .col-item
+{
+    
+    border-radius: 5px;
+    background: #FFF;
+}
+.owl .col-item .photo img
+{
+    margin: 0 auto;
+    width: 100%;
+}
+
+.owl .col-item .info
+{
+    padding: 10px;
+    border-radius: 0 0 5px 5px;
+    margin-top: 1px;
+}
+.owl .col-item:hover .info {
+    background-color: rgba(215, 215, 244, 0.5); 
+}
+.owl .col-item .price
+{
+    /*width: 50%;*/
+    float: left;
+    margin-top: 5px;
+}
+
+.owl .col-item .price h5
+{
+    line-height: 20px;
+    margin: 0;
+}
+
+.owl .price-text-color
+{
+    color: #00990E;
+}
+
+.owl .col-item .info .rating
+{
+    color: #003399;
+}
+
+.owl .col-item .rating
+{
+    /*width: 50%;*/
+    float: left;
+    font-size: 17px;
+    text-align: right;
+    line-height: 52px;
+    margin-bottom: 10px;
+    height: 52px;
+}
+
+.owl .col-item .separator
+{
+    border-top: 1px solid #FFCCCC;
+}
+
+.owl .clear-left
+{
+    clear: left;
+}
+
+.owl .col-item .separator p
+{
+    line-height: 20px;
+    margin-bottom: 0;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.owl .col-item .separator p i
+{
+    margin-right: 5px;
+}
+.owl .col-item .btn-add
+{
+    width: 50%;
+    float: left;
+}
+
+.owl .col-item .btn-add
+{
+    border-right: 1px solid #CC9999;
+}
+
+.owl .col-item .btn-details
+{
+    width: 50%;
+    float: left;
+    padding-left: 10px;
+}
+.owl .controls
+{
+    margin-top: 20px;
+}
+.owl [data-slide="prev"]
+{
+    margin-right: 10px;
+}

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+      <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css">
+      
+
+     <style type="text/css">
+      body
+      {
+        background-color:#F2F3F4 ;
+      }
+          .offer
+          {
+            width:50px;
+            height: 50px;
+            background-color:#E74C3C;
+            border-radius: 50%;
+            position: absolute;
+          }
+          .offer > h6
+          {
+            
+            text-align:center;
+            color: white;
+          }
+          .card
+          {
+            border:2px solid black;
+            box-shadow: 0px 5px 5px 0px #34495E;
+
+          }
+           .card a
+          }
+          {
+            font-size: 14px;
+
+          }
+          .card-img-top
+          {
+            border-radius: 50%;
+            width: 75px;
+            height: 75px;
+          }
+         
+          h2
+          {
+            color:white;
+            border-radius: 5px;
+            background-color:#34495E;
+          }
+          .table-dark
+          {
+            background-color:#EAECEE;
+            border-radius: 5px;
+            box-shadow: 2px 0px 2px white;
+            
+          }
+          .qty-input
+          {
+            text-align: center;
+            width:25px;
+
+          }
+          .fa-times
+          {
+            color: white;
+          }
+          .fa-plus
+          {
+            font-size: 48px;
+            text-decoration: none;
+
+          }
+          .a:hover
+          {
+            color:#5D6D7E;
+            border-bottom: none;
+            text-decoration:none;
+
+          }
+          .address
+          {
+            border:none;
+            background-color: white;
+            font-size:18px;
+          }
+           .placeorder
+          {
+            background-color: #5D6D7E;
+            color: white;
+            padding:5px;
+            border-radius: 5px;
+            border:1px solid blue;
+          }
+          .placeorder:hover
+          {
+            color: white;
+            text-decoration: none;
+            background-color:#CACFD2;
+          }
+          .fa-shopping-cart
+          {
+            font-size: 24px;
+
+          }
+           sup
+          {
+            background-color:red;
+            width: 5px;
+            font-size:18px;
+            color: white;
+          }
+         
+     </style>
+</head>
+<body>
+   <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                    <div class="container-fluid">
+                        
+                        
+                        <a class="btnhome ml-2 d-flex justify-content-center" href="/buyer/home/">
+                          <i class="fa fa-home" aria-hidden="true"></i></a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                        
+                    </div>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+                              <li><i class="fa fa-shopping-cart" aria-hidden="true"><sup>{{cnt}}</sup></i></li>
+                            </ul>
+                    </div>
+    </nav>
+	<div class="container">
+    <h2> Place your Order </h2>
+		<div class="row">
+
+      <div class="col-6">
+          <div class="card">
+            <a href="" data-toggle="modal" data-target="#addressModal" class="a"><i class="fa fa-plus d-flex justify-content-center p-4" aria-hidden="true"></i></a>
+             <h5 class="d-flex justify-content-center">change address</h5>
+          </div>
+
+         
+			 
+		</div>
+     <div class="col-6">
+          <div class="row">
+          <div class="col-md-6">
+          <div class="card p-2"><a href="">Delivery Address</a> 
+            {% for i in addrs %}
+            <form method="Post" action="">
+            <input type="text" name="" value="{{i.house_nm}} {{i.street_nm}} {{i.city_nm}} {{i.state_nm}} {{i.postal_code}}" class="address" disabled="" hidden="">
+            </form>
+            <h6>{{i.house_nm}},</h6> 
+            <h6>{{i.street_nm}}, {{i.city_nm}}</h6>
+            <h6> {{i.state_nm}}  {{i.postal_code}}</h6>
+            
+            {% endfor %}
+          </div>
+          </div>
+          <div class="col-md-6">
+            
+          </div>
+          </div>
+    </div>
+
+    
+    </div>
+     <h2 class="mt-4"> Payment Details </h2>
+    <div class="row">
+      <div class="col-12">
+        <input type="radio" name="payment" value="cod"> Cash on delivery</br>
+        <input type="radio" name="payment" value="upi"><img src="{% static 'upi.png' %}" width="100px" height="50px;" class="mt-3">UPI method<br>
+        <input type="radio" name="payment" value="online banking"><img src="{% static 'bank.png' %}" width="100px" height="50px;" class="mt-3">Online Banking
+      </div>
+
+      <input type="submit" value="Submit" name="" class="placeorder m-5 w-100">
+      
+    </div>
+	</div>
+<script src="{% static 'cart.js' %}"></script>
+<!-- Bootstrap core JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Core theme JS-->
+<script src="{% static 'scripts.js' %}"></script>
+
+
+
+<div class="modal fade" id="addressModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Add Address</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form method="Post" action="/add_address/">
+          {% csrf_token %}
+        <input type="text" name="house" placeholder="House No." class="form-control mt-2" required="">
+        <input type="text" name="street" placeholder="Street Name" class="form-control mt-2" required="">
+        <input type="text" name="city" placeholder="City Name" class="form-control mt-2" required="">
+        <input type="text" name="state" placeholder="state Name" class="form-control mt-2" required="">
+        <input type="text" name="pin" placeholder="Postal Code" class="form-control mt-2" required="">
+        <input type="submit" value="Add Address" name="" class="form-control mt-2" required="">
+
+      </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
